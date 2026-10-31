@@ -655,14 +655,18 @@ resources:
       - InvalidKey.Format
       - InvalidParameterCombination
       - InvalidParameterValue
+      - MissingParameter
     fields:
       KeyName:
         is_primary_key: true
         is_immutable: true
       # ImportKeyPair takes the public key as a blob; the spec carries the
       # public key text and the create hook converts it.
+      # ImportKeyPair needs it, but DescribeKeyPairs never returns it, so an
+      # adopted KeyPair has no value to write back; the create hook rejects a
+      # missing key the way MinCount and MaxCount are handled on Instance.
       PublicKeyMaterial:
-        is_required: true
+        is_required: false
         is_immutable: true
         type: string
         set:

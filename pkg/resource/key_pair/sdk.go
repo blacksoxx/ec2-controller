@@ -425,7 +425,8 @@ func (rm *resourceManager) terminalAWSError(err error) bool {
 	case "InvalidKeyPair.Duplicate",
 		"InvalidKey.Format",
 		"InvalidParameterCombination",
-		"InvalidParameterValue":
+		"InvalidParameterValue",
+		"MissingParameter":
 		return true
 	default:
 		return false

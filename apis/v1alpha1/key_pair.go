@@ -32,8 +32,7 @@ type KeyPairSpec struct {
 	// sends the bytes to ImportKeyPair, so unlike the AWS CLI the value must
 	// not be base64-encoded here.
 	// +kubebuilder:validation:XValidation:rule="self == oldSelf",message="Value is immutable once set"
-	// +kubebuilder:validation:Required
-	PublicKeyMaterial *string `json:"publicKeyMaterial"`
+	PublicKeyMaterial *string `json:"publicKeyMaterial,omitempty"`
 	// The tags. The value parameter is required, but if you don't want the tag
 	// to have a value, specify the parameter with no value, and we set the value
 	// to an empty string.

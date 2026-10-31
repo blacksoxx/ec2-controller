@@ -75,7 +75,6 @@ spec:
                 type: array
             required:
             - keyName
-            - publicKeyMaterial
             type: object
           status:
             description: KeyPairStatus defines the observed state of KeyPair
